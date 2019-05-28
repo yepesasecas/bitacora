@@ -7,14 +7,24 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A0228869229CD526004478BE /* DataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0228868229CD526004478BE /* DataController.swift */; };
+		A022886B229CDC92004478BE /* PhotoCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A022886A229CDC92004478BE /* PhotoCollectionViewCell.swift */; };
+		A022886D229CE377004478BE /* PhotosViewController+NSFetchedResultsControllerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A022886C229CE377004478BE /* PhotosViewController+NSFetchedResultsControllerDelegate.swift */; };
+		A022886F229CE3CA004478BE /* PhotosViewController+UIImagePickerControllerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A022886E229CE3CA004478BE /* PhotosViewController+UIImagePickerControllerDelegate.swift */; };
+		A0228871229CE59F004478BE /* PhotosViewController+UICollectionViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0228870229CE59F004478BE /* PhotosViewController+UICollectionViewDelegate.swift */; };
 		A025093222979327005602A7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A025093122979327005602A7 /* AppDelegate.swift */; };
-		A025093422979327005602A7 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A025093322979327005602A7 /* ViewController.swift */; };
+		A025093422979327005602A7 /* PhotosViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A025093322979327005602A7 /* PhotosViewController.swift */; };
 		A025093722979327005602A7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A025093522979327005602A7 /* Main.storyboard */; };
 		A025093A22979327005602A7 /* bitacora.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = A025093822979327005602A7 /* bitacora.xcdatamodeld */; };
 		A025093C22979329005602A7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A025093B22979329005602A7 /* Assets.xcassets */; };
 		A025093F22979329005602A7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A025093D22979329005602A7 /* LaunchScreen.storyboard */; };
 		A025094A22979329005602A7 /* bitacoraTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A025094922979329005602A7 /* bitacoraTests.swift */; };
 		A025095522979329005602A7 /* bitacoraUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A025095422979329005602A7 /* bitacoraUITests.swift */; };
+		A0250980229795D8005602A7 /* GCVLabelAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0250971229795D7005602A7 /* GCVLabelAnnotation.swift */; };
+		A0250981229795D8005602A7 /* GoogleCloudVision.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0250972229795D7005602A7 /* GoogleCloudVision.swift */; };
+		A0250982229795D8005602A7 /* AfyClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0250973229795D7005602A7 /* AfyClient.swift */; };
+		A025098822979662005602A7 /* ProgressHUD.swift in Sources */ = {isa = PBXBuildFile; fileRef = A025098722979662005602A7 /* ProgressHUD.swift */; };
+		A025098A2297A781005602A7 /* HashtagsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A02509892297A781005602A7 /* HashtagsTableViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -35,9 +45,14 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		A0228868229CD526004478BE /* DataController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataController.swift; sourceTree = "<group>"; };
+		A022886A229CDC92004478BE /* PhotoCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoCollectionViewCell.swift; sourceTree = "<group>"; };
+		A022886C229CE377004478BE /* PhotosViewController+NSFetchedResultsControllerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PhotosViewController+NSFetchedResultsControllerDelegate.swift"; sourceTree = "<group>"; };
+		A022886E229CE3CA004478BE /* PhotosViewController+UIImagePickerControllerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PhotosViewController+UIImagePickerControllerDelegate.swift"; sourceTree = "<group>"; };
+		A0228870229CE59F004478BE /* PhotosViewController+UICollectionViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PhotosViewController+UICollectionViewDelegate.swift"; sourceTree = "<group>"; };
 		A025092E22979327005602A7 /* bitacora.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = bitacora.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A025093122979327005602A7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		A025093322979327005602A7 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		A025093322979327005602A7 /* PhotosViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotosViewController.swift; sourceTree = "<group>"; };
 		A025093622979327005602A7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		A025093922979327005602A7 /* bitacora.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = bitacora.xcdatamodel; sourceTree = "<group>"; };
 		A025093B22979329005602A7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -49,6 +64,11 @@
 		A025095022979329005602A7 /* bitacoraUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = bitacoraUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		A025095422979329005602A7 /* bitacoraUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = bitacoraUITests.swift; sourceTree = "<group>"; };
 		A025095622979329005602A7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A0250971229795D7005602A7 /* GCVLabelAnnotation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GCVLabelAnnotation.swift; sourceTree = "<group>"; };
+		A0250972229795D7005602A7 /* GoogleCloudVision.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GoogleCloudVision.swift; sourceTree = "<group>"; };
+		A0250973229795D7005602A7 /* AfyClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AfyClient.swift; sourceTree = "<group>"; };
+		A025098722979662005602A7 /* ProgressHUD.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProgressHUD.swift; sourceTree = "<group>"; };
+		A02509892297A781005602A7 /* HashtagsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HashtagsTableViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -100,12 +120,11 @@
 			isa = PBXGroup;
 			children = (
 				A025093122979327005602A7 /* AppDelegate.swift */,
-				A025093322979327005602A7 /* ViewController.swift */,
-				A025093522979327005602A7 /* Main.storyboard */,
-				A025093B22979329005602A7 /* Assets.xcassets */,
-				A025093D22979329005602A7 /* LaunchScreen.storyboard */,
+				A0250962229793E4005602A7 /* views */,
+				A0250963229793F3005602A7 /* controllers */,
+				A025096422979413005602A7 /* models */,
+				A025096522979438005602A7 /* assets */,
 				A025094022979329005602A7 /* Info.plist */,
-				A025093822979327005602A7 /* bitacora.xcdatamodeld */,
 			);
 			path = bitacora;
 			sourceTree = "<group>";
@@ -126,6 +145,65 @@
 				A025095622979329005602A7 /* Info.plist */,
 			);
 			path = bitacoraUITests;
+			sourceTree = "<group>";
+		};
+		A0250962229793E4005602A7 /* views */ = {
+			isa = PBXGroup;
+			children = (
+				A025098722979662005602A7 /* ProgressHUD.swift */,
+				A022886A229CDC92004478BE /* PhotoCollectionViewCell.swift */,
+			);
+			path = views;
+			sourceTree = "<group>";
+		};
+		A0250963229793F3005602A7 /* controllers */ = {
+			isa = PBXGroup;
+			children = (
+				A025093322979327005602A7 /* PhotosViewController.swift */,
+				A022886E229CE3CA004478BE /* PhotosViewController+UIImagePickerControllerDelegate.swift */,
+				A022886C229CE377004478BE /* PhotosViewController+NSFetchedResultsControllerDelegate.swift */,
+				A0228870229CE59F004478BE /* PhotosViewController+UICollectionViewDelegate.swift */,
+				A02509892297A781005602A7 /* HashtagsTableViewController.swift */,
+			);
+			path = controllers;
+			sourceTree = "<group>";
+		};
+		A025096422979413005602A7 /* models */ = {
+			isa = PBXGroup;
+			children = (
+				A0228868229CD526004478BE /* DataController.swift */,
+				A025093822979327005602A7 /* bitacora.xcdatamodeld */,
+				A025096B229795D7005602A7 /* AfyClient */,
+			);
+			path = models;
+			sourceTree = "<group>";
+		};
+		A025096522979438005602A7 /* assets */ = {
+			isa = PBXGroup;
+			children = (
+				A025093D22979329005602A7 /* LaunchScreen.storyboard */,
+				A025093522979327005602A7 /* Main.storyboard */,
+				A025093B22979329005602A7 /* Assets.xcassets */,
+			);
+			path = assets;
+			sourceTree = "<group>";
+		};
+		A025096B229795D7005602A7 /* AfyClient */ = {
+			isa = PBXGroup;
+			children = (
+				A0250973229795D7005602A7 /* AfyClient.swift */,
+				A0250970229795D7005602A7 /* GoogleCloudVision */,
+			);
+			path = AfyClient;
+			sourceTree = "<group>";
+		};
+		A0250970229795D7005602A7 /* GoogleCloudVision */ = {
+			isa = PBXGroup;
+			children = (
+				A0250971229795D7005602A7 /* GCVLabelAnnotation.swift */,
+				A0250972229795D7005602A7 /* GoogleCloudVision.swift */,
+			);
+			path = GoogleCloudVision;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -259,9 +337,19 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A025093422979327005602A7 /* ViewController.swift in Sources */,
+				A025093422979327005602A7 /* PhotosViewController.swift in Sources */,
+				A022886B229CDC92004478BE /* PhotoCollectionViewCell.swift in Sources */,
+				A022886D229CE377004478BE /* PhotosViewController+NSFetchedResultsControllerDelegate.swift in Sources */,
 				A025093A22979327005602A7 /* bitacora.xcdatamodeld in Sources */,
+				A025098A2297A781005602A7 /* HashtagsTableViewController.swift in Sources */,
+				A0228871229CE59F004478BE /* PhotosViewController+UICollectionViewDelegate.swift in Sources */,
 				A025093222979327005602A7 /* AppDelegate.swift in Sources */,
+				A0228869229CD526004478BE /* DataController.swift in Sources */,
+				A022886F229CE3CA004478BE /* PhotosViewController+UIImagePickerControllerDelegate.swift in Sources */,
+				A0250981229795D8005602A7 /* GoogleCloudVision.swift in Sources */,
+				A0250982229795D8005602A7 /* AfyClient.swift in Sources */,
+				A0250980229795D8005602A7 /* GCVLabelAnnotation.swift in Sources */,
+				A025098822979662005602A7 /* ProgressHUD.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
