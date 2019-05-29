@@ -33,12 +33,16 @@ class PhotosViewController: UIViewController, UICollectionViewDataSource {
             takePicture.isEnabled = false
         }
         
-        setupFetchedResultsController()
-        setFlowLayout()
-        
         progressHUD = ProgressHUD.init(text: "loading")
         self.view.addSubview(progressHUD)
         self.progressHUD.hide()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+
+        setupFetchedResultsController()
+        setFlowLayout()
     }
     
     override func viewWillLayoutSubviews() {
@@ -87,7 +91,8 @@ class PhotosViewController: UIViewController, UICollectionViewDataSource {
     
     func setupFetchedResultsController() {
         let fetchRequest:NSFetchRequest<Photo> = Photo.fetchRequest()
-        fetchRequest.sortDescriptors = []
+        let sort = NSSortDescriptor(key: "createdAt", ascending: true)
+        fetchRequest.sortDescriptors = [sort]
         
         fetchedResultsController = NSFetchedResultsController(fetchRequest: fetchRequest, managedObjectContext: dataController.viewContext, sectionNameKeyPath: nil, cacheName: "photos")
         fetchedResultsController.delegate = self

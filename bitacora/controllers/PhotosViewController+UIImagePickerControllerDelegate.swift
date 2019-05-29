@@ -26,7 +26,7 @@ extension PhotosViewController: UIImagePickerControllerDelegate, UINavigationCon
             
             let photo = Photo(context: self.dataController.viewContext)
             photo.imageData = imageData
-            
+            photo.createdAt = NSDate() as Date
             do {
                 try dataController.viewContext.save()
             } catch {
@@ -42,19 +42,32 @@ extension PhotosViewController: UIImagePickerControllerDelegate, UINavigationCon
                     DispatchQueue.main.async {
                         self.progressHUD.show(text: error)
                     }
+                    return
                 }
                 
                 DispatchQueue.main.async {
                     self.progressHUD?.hide()
-                    print(res)
-                    if let res = res as? [Substring] {
-                        let hashtagsVC = self.storyboard?.instantiateViewController(withIdentifier: "HashtagsTableViewController") as! HashtagsTableViewController
-                        hashtagsVC.hashtags = res.map { String($0) }
-                        self.navigationController?.pushViewController(hashtagsVC, animated: true)
+                    
+                    // No Text found in the photo
+                    guard let res = res as? [Substring] else {
+                        self.progressHUD?.show(text: "No words found")
+                        return
                     }
-                    else {
-                        self.progressHUD?.show(text: ":(")
+                    
+                    // Filter # of Words Array
+                    let wordsArray = res.map { String($0) }
+                    let hashtagsArray = wordsArray.filter() { ($0 as String).starts(with: "#") }
+                    
+                    // NO #s Found
+                    if hashtagsArray.count == 0 {
+                        self.progressHUD?.show(text: "No #s found")
+                        return
                     }
+                    
+                    // push hashtag VC
+                    let hashtagsVC = self.storyboard?.instantiateViewController(withIdentifier: "HashtagsTableViewController") as! HashtagsTableViewController
+                    hashtagsVC.hashtags = hashtagsArray
+                    self.navigationController?.pushViewController(hashtagsVC, animated: true)
                 }
             }
         }

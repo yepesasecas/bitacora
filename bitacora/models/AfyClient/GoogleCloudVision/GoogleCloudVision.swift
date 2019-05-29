@@ -60,13 +60,24 @@ class GoogleCloudVision: NSObject {
                 return
             }
             
-            guard let resJson = try? JSONSerialization.jsonObject(with: data, options: []) as AnyObject,
-                  let responsesJson = resJson["responses"] as? [AnyObject],
-                  let fullTextAnnotation = responsesJson[0]["fullTextAnnotation"] as? AnyObject,
+            guard let resJson = try? JSONSerialization.jsonObject(with: data, options: []) as AnyObject else {
+                closure(nil, "unable to decode Data to JSON Object")
+                return
+            }
+            
+            guard let responsesJson = resJson["responses"] as? [AnyObject] else {
+                    print(resJson)
+                    closure(nil, "No responses section found in response")
+                    return
+            }
+            
+            guard let fullTextAnnotation = responsesJson[0]["fullTextAnnotation"] as AnyObject?,
                   let text = fullTextAnnotation["text"] as? String else {
-                      closure(nil, "unable to decode Data to JSON Object")
+                      print(resJson)
+                      closure(nil, "No fullTextAnnotation Section found in response")
                       return
             }
+            
             let textArray = text.split(separator: "\n")
             closure(textArray, nil)
         }
