@@ -75,6 +75,11 @@ class PhotosViewController: UIViewController, UICollectionViewDataSource {
         if let imageData = photo.imageData {
             cell.imageView.image = UIImage.init(data: imageData)
         }
+
+        if photo.classified {
+            cell.activityIndicator.stopAnimating()
+        }
+        
         return cell
     }
     

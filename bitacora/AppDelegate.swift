@@ -19,11 +19,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         dataController.load()
         
-        let tabBarController = window?.rootViewController as! UITabBarController
-        let navBarController = tabBarController.viewControllers?.first as! UINavigationController
-        let newVC = navBarController.topViewController as! PhotosViewController
-        newVC.dataController = dataController
-
+        let navController = window?.rootViewController as! UINavigationController
+        let photoVC = navController.topViewController as! PhotosViewController
+        photoVC.dataController = dataController
+        
         return true
     }
 }

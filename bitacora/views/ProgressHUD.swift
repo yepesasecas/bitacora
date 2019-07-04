@@ -86,7 +86,9 @@ class ProgressHUD: UIVisualEffectView {
     func show(text: String) {
         self.isHidden = false
         self.label.text = text
-        DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+        
+        // Wait 5 Seconds before dismissing
+        DispatchQueue.main.asyncAfter(deadline: .now() + 5) {
             self.hide()
         }
     }

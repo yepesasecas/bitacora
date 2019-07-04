@@ -17,16 +17,18 @@ extension PhotosViewController: UIImagePickerControllerDelegate, UINavigationCon
             let gcv = GoogleCloudVision.init()
             
             //TODO: Define best compression Quality. Trade-off
-            self.progressHUD?.show(text: "processing...")
-            
             guard let imageData = image.jpegData(compressionQuality: 0.1)  else{
                 print("Unable to generate image data")
                 return
             }
             
+            //  Create Photo
             let photo = Photo(context: self.dataController.viewContext)
             photo.imageData = imageData
             photo.createdAt = NSDate() as Date
+            photo.classified = false
+    
+            // Save Photo
             do {
                 try dataController.viewContext.save()
             } catch {
@@ -34,9 +36,10 @@ extension PhotosViewController: UIImagePickerControllerDelegate, UINavigationCon
                 print(error)
             }
             
-            
+            // Send imageData to Google Vision
             gcv.objectsIn(imageData: imageData){ (res, error) in
                 
+                // Error Guard
                 if let error = error as? String{
                     print(error)
                     DispatchQueue.main.async {
@@ -45,29 +48,31 @@ extension PhotosViewController: UIImagePickerControllerDelegate, UINavigationCon
                     return
                 }
                 
-                DispatchQueue.main.async {
-                    self.progressHUD?.hide()
-                    
-                    // No Text found in the photo
-                    guard let res = res as? [Substring] else {
-                        self.progressHUD?.show(text: "No words found")
-                        return
+                // Filter # of Words Array
+
+                let hashtagsArray = (res as! [Substring]).filter() { $0.starts(with: "#") }
+                
+                // NO #s Found
+                if hashtagsArray.count == 0 {
+                    print("no hashtags found")
+                    return
+                }
+                
+                // Store Photo Hashtags
+                do {
+                    hashtagsArray.forEach { (string: Substring) in
+                        let hashtag = Hashtag.init(context: self.dataController.viewContext)
+                        hashtag.title = String(string)
+                        hashtag.addToPhotos(photo)
                     }
                     
-                    // Filter # of Words Array
-                    let wordsArray = res.map { String($0) }
-                    let hashtagsArray = wordsArray.filter() { ($0 as String).starts(with: "#") }
+                    photo.classified = true
                     
-                    // NO #s Found
-                    if hashtagsArray.count == 0 {
-                        self.progressHUD?.show(text: "No #s found")
-                        return
-                    }
-                    
-                    // push hashtag VC
-                    let hashtagsVC = self.storyboard?.instantiateViewController(withIdentifier: "HashtagsTableViewController") as! HashtagsTableViewController
-                    hashtagsVC.hashtags = hashtagsArray
-                    self.navigationController?.pushViewController(hashtagsVC, animated: true)
+                    try self.dataController.viewContext.save()
+                    self.navigationController?.popViewController(animated: true)
+                } catch {
+                    print("unable to save hashtags")
+                    print(error)
                 }
             }
         }
