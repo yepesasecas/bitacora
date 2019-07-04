@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A008BADD229F800F00E1D3E0 /* HashtagsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A008BADC229F800F00E1D3E0 /* HashtagsTableViewController.swift */; };
+		A008BADF229F80F800E1D3E0 /* HashtagsTableViewController+NSFetchedResultsControllerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A008BADE229F80F800E1D3E0 /* HashtagsTableViewController+NSFetchedResultsControllerDelegate.swift */; };
 		A0228869229CD526004478BE /* DataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0228868229CD526004478BE /* DataController.swift */; };
 		A022886B229CDC92004478BE /* PhotoCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A022886A229CDC92004478BE /* PhotoCollectionViewCell.swift */; };
 		A022886D229CE377004478BE /* PhotosViewController+NSFetchedResultsControllerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A022886C229CE377004478BE /* PhotosViewController+NSFetchedResultsControllerDelegate.swift */; };
@@ -24,7 +26,7 @@
 		A0250981229795D8005602A7 /* GoogleCloudVision.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0250972229795D7005602A7 /* GoogleCloudVision.swift */; };
 		A0250982229795D8005602A7 /* AfyClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0250973229795D7005602A7 /* AfyClient.swift */; };
 		A025098822979662005602A7 /* ProgressHUD.swift in Sources */ = {isa = PBXBuildFile; fileRef = A025098722979662005602A7 /* ProgressHUD.swift */; };
-		A025098A2297A781005602A7 /* HashtagsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A02509892297A781005602A7 /* HashtagsTableViewController.swift */; };
+		A025098A2297A781005602A7 /* PhotoHashtagsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A02509892297A781005602A7 /* PhotoHashtagsTableViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -45,6 +47,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		A008BADC229F800F00E1D3E0 /* HashtagsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HashtagsTableViewController.swift; sourceTree = "<group>"; };
+		A008BADE229F80F800E1D3E0 /* HashtagsTableViewController+NSFetchedResultsControllerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "HashtagsTableViewController+NSFetchedResultsControllerDelegate.swift"; sourceTree = "<group>"; };
 		A0228868229CD526004478BE /* DataController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataController.swift; sourceTree = "<group>"; };
 		A022886A229CDC92004478BE /* PhotoCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoCollectionViewCell.swift; sourceTree = "<group>"; };
 		A022886C229CE377004478BE /* PhotosViewController+NSFetchedResultsControllerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PhotosViewController+NSFetchedResultsControllerDelegate.swift"; sourceTree = "<group>"; };
@@ -68,7 +72,7 @@
 		A0250972229795D7005602A7 /* GoogleCloudVision.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GoogleCloudVision.swift; sourceTree = "<group>"; };
 		A0250973229795D7005602A7 /* AfyClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AfyClient.swift; sourceTree = "<group>"; };
 		A025098722979662005602A7 /* ProgressHUD.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProgressHUD.swift; sourceTree = "<group>"; };
-		A02509892297A781005602A7 /* HashtagsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HashtagsTableViewController.swift; sourceTree = "<group>"; };
+		A02509892297A781005602A7 /* PhotoHashtagsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoHashtagsTableViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -163,7 +167,9 @@
 				A022886E229CE3CA004478BE /* PhotosViewController+UIImagePickerControllerDelegate.swift */,
 				A022886C229CE377004478BE /* PhotosViewController+NSFetchedResultsControllerDelegate.swift */,
 				A0228870229CE59F004478BE /* PhotosViewController+UICollectionViewDelegate.swift */,
-				A02509892297A781005602A7 /* HashtagsTableViewController.swift */,
+				A02509892297A781005602A7 /* PhotoHashtagsTableViewController.swift */,
+				A008BADC229F800F00E1D3E0 /* HashtagsTableViewController.swift */,
+				A008BADE229F80F800E1D3E0 /* HashtagsTableViewController+NSFetchedResultsControllerDelegate.swift */,
 			);
 			path = controllers;
 			sourceTree = "<group>";
@@ -339,12 +345,14 @@
 			files = (
 				A025093422979327005602A7 /* PhotosViewController.swift in Sources */,
 				A022886B229CDC92004478BE /* PhotoCollectionViewCell.swift in Sources */,
+				A008BADD229F800F00E1D3E0 /* HashtagsTableViewController.swift in Sources */,
 				A022886D229CE377004478BE /* PhotosViewController+NSFetchedResultsControllerDelegate.swift in Sources */,
 				A025093A22979327005602A7 /* bitacora.xcdatamodeld in Sources */,
-				A025098A2297A781005602A7 /* HashtagsTableViewController.swift in Sources */,
+				A025098A2297A781005602A7 /* PhotoHashtagsTableViewController.swift in Sources */,
 				A0228871229CE59F004478BE /* PhotosViewController+UICollectionViewDelegate.swift in Sources */,
 				A025093222979327005602A7 /* AppDelegate.swift in Sources */,
 				A0228869229CD526004478BE /* DataController.swift in Sources */,
+				A008BADF229F80F800E1D3E0 /* HashtagsTableViewController+NSFetchedResultsControllerDelegate.swift in Sources */,
 				A022886F229CE3CA004478BE /* PhotosViewController+UIImagePickerControllerDelegate.swift in Sources */,
 				A0250981229795D8005602A7 /* GoogleCloudVision.swift in Sources */,
 				A0250982229795D8005602A7 /* AfyClient.swift in Sources */,
