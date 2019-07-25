@@ -71,6 +71,18 @@
                                             <action selector="takePictureAction:" destination="BYZ-38-t0r" id="XpH-7y-AHB"/>
                                         </connections>
                                     </barButtonItem>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="Ukm-0P-CFb"/>
+                                    <barButtonItem title="Tumblr" id="vL5-iy-0Ca">
+                                        <connections>
+                                            <action selector="tumblr:" destination="BYZ-38-t0r" id="VqK-MN-YrY"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="4pC-Kp-Ttb"/>
+                                    <barButtonItem title="upload" id="KHr-js-ywV">
+                                        <connections>
+                                            <action selector="upload:" destination="BYZ-38-t0r" id="fuE-iK-Byq"/>
+                                        </connections>
+                                    </barButtonItem>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="M1u-IN-dQE"/>
                                 </items>
                             </toolbar>
@@ -166,7 +178,7 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" id="vQ3-qj-P5n">
-                        <barButtonItem key="rightBarButtonItem" title="Save" id="rl0-WR-cs0">
+                        <barButtonItem key="rightBarButtonItem" title="Upload" id="rl0-WR-cs0">
                             <connections>
                                 <action selector="save:" destination="r3g-u8-U7h" id="z4r-qj-oq0"/>
                             </connections>

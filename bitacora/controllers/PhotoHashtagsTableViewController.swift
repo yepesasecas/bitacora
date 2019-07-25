@@ -26,21 +26,21 @@ class PhotoHashtagsTableViewController: UITableViewController {
     // MARK: - Actions
     
     @IBAction func save(_ sender: Any) {
-        do {
-            let hashtagsObject = hashtags.map() { (string: String) -> Hashtag in
-                let hashtag = Hashtag.init(context: self.dataController.viewContext)
-                hashtag.title = string
-                hashtag.addToPhotos(photo)
-                print(hashtag)
-                return hashtag
-            }
-            print(hashtagsObject)
-            try dataController.viewContext.save()
-            self.navigationController?.popViewController(animated: true)
-        } catch {
-            print("unable to save hashtags")
-            print(error)
-        }
+//        do {
+//            let hashtagsObject = hashtags.map() { (string: String) -> Hashtag in
+//                let hashtag = Hashtag.init(context: self.dataController.viewContext)
+//                hashtag.title = string
+//                hashtag.addToPhotos(photo)
+//                print(hashtag)
+//                return hashtag
+//            }
+//            print(hashtagsObject)
+//            try dataController.viewContext.save()
+//            self.navigationController?.popViewController(animated: true)
+//        } catch {
+//            print("unable to save hashtags")
+//            print(error)
+//        }
     }
     
     // MARK: - Table view data source

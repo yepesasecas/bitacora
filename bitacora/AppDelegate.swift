@@ -8,6 +8,8 @@
 
 import UIKit
 import CoreData
+import OAuthSwift
+
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -23,6 +25,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let photoVC = navController.topViewController as! PhotosViewController
         photoVC.dataController = dataController
         
+        return true
+    }
+    
+    func application(_ app: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey  : Any] = [:]) -> Bool {
+        print("App Delegate")
+        print(url)
+        print(url.host)
+        if (url.host == "oauth-callback") {
+            OAuthSwift.handle(url: url)
+        }
         return true
     }
 }
