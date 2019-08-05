@@ -57,94 +57,6 @@ class PhotosViewController: UIViewController, UICollectionViewDataSource {
         presentImagePickerWith(sourceType: .camera)
     }
     
-    @IBAction func upload(_ sender: Any) {
-//        print("------------------------- UPLOAD \n")
-//        let _ = oauthswift.client.get("https://api.tumblr.com/v2/user/info") { result in
-//            print("------------------------- UPLOAD \n")
-//            switch result {
-//            case .success(let response):
-//                let dataString = response.string!
-//                print(dataString)
-//            case .failure(let error):
-//                print(error)
-//            }
-//        }
-        
-        let params: [String: Any] = [
-            "content": [
-                [
-                    "type": "image",
-                    "media": [
-                        [
-                            "type": "image/jpeg",
-                            "identifier": "file",
-                            "width": 250,
-                            "height": 200
-                        ]
-                    ]
-                ]
-            ]
-        ]
-        let headers = ["Content-Type":"application/json"]
-        let tumblr_url = "https://api.tumblr.com/v2/blog/shykidvoiddonut.tumblr.com/posts"
-        let hook_url = "https://hookb.in/VG6G37y0MOfkmkbNBeB2"
-        
-//        post(url: tumblr_url, params: params, headers: headers, label: "TUMBLR")
-//        post(url: hook_url, params: params, headers: headers, label: "HOOK")
-        
-        let photoData = UIImage(named: "img.jpeg")?.jpegData(compressionQuality: 0.1)
-        let dataPart = OAuthSwiftMultipartData(name: "ident", data: photoData!, fileName: "img", mimeType: nil)
-        let multiParts = [dataPart]
-        
-//        multiPart(url: hook_url, method: .POST, params: params, headers: nil, multiparts: multiParts, label: "MULTIPART")
-//        multiPart(url: tumblr_url, method: .POST, params: params, headers: nil, multiparts: multiParts, label: "MULTIPART")
-        
-        postImage(url: hook_url, params: params, imageData: photoData!, label: "IMAGE")
-        postImage(url: tumblr_url, params: params, imageData: photoData!, label: "IMAGE")
-    }
-    
-    func postImage(url: String, params: OAuthSwift.Parameters, imageData: Data, label: String) {
-        let request = oauthswift.client.makeMultiPartRequest(url, method: .POST)
-        
-        
-        oauthswift.client.postImage(url, parameters: params, image: imageData) { result in
-            print("\n -------------- \(label) \n")
-            switch result {
-            case .success(let response):
-                let dataString = response.string
-                print(dataString)
-            case .failure(let error):
-                print(error)
-            }
-        }
-    }
-    
-    func multiPart(url: String, method: OAuthSwiftHTTPRequest.Method, params: OAuthSwift.Parameters, headers: OAuthSwift.Headers?, multiparts: [OAuthSwiftMultipartData], label: String) {
-        oauthswift.client.postMultiPartRequest(url, method: method, parameters: params, headers: headers, multiparts: multiparts, checkTokenExpiration: true) { result in
-            print("\n -------------- \(label) \n")
-            switch result {
-            case .success(let response):
-                let dataString = response.string
-                print(dataString)
-            case .failure(let error):
-                print(error)
-            }
-        }
-    }
-    
-    func post(url: String, params: OAuthSwift.Parameters, headers: OAuthSwift.Headers, label: String) {
-        oauthswift.client.post(url, parameters: params, headers: headers) { result in
-            print("\n -------------- \(label) \n")
-            switch result {
-            case .success(let response):
-                let dataString = response.string
-                print(dataString)
-            case .failure(let error):
-                print(error)
-            }
-        }
-    }
-    
     @IBAction func tumblr(_ sender: Any) {
         // create an instance and retain it
         oauthswift = OAuth1Swift(
@@ -163,7 +75,7 @@ class PhotosViewController: UIViewController, UICollectionViewDataSource {
             case .success(let (credential, response, parameters)):
                 print(credential.oauthToken)
                 print(credential.oauthTokenSecret)
-                print(parameters["user_id"])
+                print(parameters)
             // Do your request
             case .failure(let error):
                 print(error.description)

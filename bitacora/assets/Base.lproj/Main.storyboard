@@ -78,12 +78,6 @@
                                         </connections>
                                     </barButtonItem>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="4pC-Kp-Ttb"/>
-                                    <barButtonItem title="upload" id="KHr-js-ywV">
-                                        <connections>
-                                            <action selector="upload:" destination="BYZ-38-t0r" id="fuE-iK-Byq"/>
-                                        </connections>
-                                    </barButtonItem>
-                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="M1u-IN-dQE"/>
                                 </items>
                             </toolbar>
                         </subviews>
@@ -180,7 +174,7 @@
                     <navigationItem key="navigationItem" id="vQ3-qj-P5n">
                         <barButtonItem key="rightBarButtonItem" title="Upload" id="rl0-WR-cs0">
                             <connections>
-                                <action selector="save:" destination="r3g-u8-U7h" id="z4r-qj-oq0"/>
+                                <action selector="upload:" destination="r3g-u8-U7h" id="ynb-NG-AGS"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>

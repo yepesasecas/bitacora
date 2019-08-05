@@ -8,6 +8,7 @@
 
 import UIKit
 import CoreData
+import OAuthSwift
 
 class HashtagsTableViewController: UITableViewController {
     

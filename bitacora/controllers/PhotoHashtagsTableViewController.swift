@@ -8,6 +8,8 @@
 
 import UIKit
 import CoreData
+import OAuthSwift
+
 
 class PhotoHashtagsTableViewController: UITableViewController {
     
@@ -16,6 +18,7 @@ class PhotoHashtagsTableViewController: UITableViewController {
     var dataController: DataController!
     var hashtags: [String]!
     var photo: Photo!
+    var oauthswift:OAuth1Swift!
     
     // MARK: - Life Cycle
     
@@ -24,24 +27,36 @@ class PhotoHashtagsTableViewController: UITableViewController {
     }
 
     // MARK: - Actions
-    
-    @IBAction func save(_ sender: Any) {
-//        do {
-//            let hashtagsObject = hashtags.map() { (string: String) -> Hashtag in
-//                let hashtag = Hashtag.init(context: self.dataController.viewContext)
-//                hashtag.title = string
-//                hashtag.addToPhotos(photo)
-//                print(hashtag)
-//                return hashtag
-//            }
-//            print(hashtagsObject)
-//            try dataController.viewContext.save()
-//            self.navigationController?.popViewController(animated: true)
-//        } catch {
-//            print("unable to save hashtags")
-//            print(error)
-//        }
+    @IBAction func upload(_ sender: Any) {
+        let params: [String: Any] = [
+            "content": [
+                [
+                    "type": "image",
+                    "media": [
+                        [
+                            "type": "image/jpeg",
+                            "identifier": "fileId",
+                            "width": 250,
+                            "height": 200
+                        ]
+                    ]
+                ]
+            ],
+            "tags": "ios, bitacora"
+        ]
+        let paramsData = try? JSONSerialization.data(withJSONObject:params)
+        let tumblr_url = "https://api.tumblr.com/v2/blog/shykidvoiddonut.tumblr.com/posts"
+        let hook_url = "https://hookb.in/jea6RGkZy9T1012zVW97"
+        
+        let photoData = UIImage(named: "img.jpeg")?.jpegData(compressionQuality: 0.1)
+        let dataPart = OAuthSwiftMultipartData(name: "fileId", data: photoData!, fileName: "img.jpeg", mimeType: "image/jpeg")
+        let jsonPart = OAuthSwiftMultipartData(name: "json", data: paramsData!, fileName: nil, mimeType: "application/json")
+        let multiParts = [dataPart, jsonPart]
+        
+        multiPart(url: hook_url, method: .POST, params: [:], headers: nil, multiparts: multiParts, label: "MULTIPART")
+        multiPart(url: tumblr_url, method: .POST, params: [:], headers: nil, multiparts: multiParts, label: "MULTIPART")
     }
+    
     
     // MARK: - Table view data source
 
@@ -57,6 +72,21 @@ class PhotoHashtagsTableViewController: UITableViewController {
         let cell = tableView.dequeueReusableCell(withIdentifier: "hashtagCell", for: indexPath)
         cell.textLabel?.text = hashtags[indexPath.row]
         return cell
+    }
+    
+    // Private
+    
+    func multiPart(url: String, method: OAuthSwiftHTTPRequest.Method, params: OAuthSwift.Parameters, headers: OAuthSwift.Headers?, multiparts: [OAuthSwiftMultipartData], label: String) {
+        oauthswift.client.postMultiPartRequest(url, method: method, parameters: params, headers: headers, multiparts: multiparts, checkTokenExpiration: true) { result in
+            print("\n -------------- \(label) \n")
+            switch result {
+            case .success(let response):
+                let dataString = response.string
+                print(dataString)
+            case .failure(let error):
+                print(error)
+            }
+        }
     }
 
 }
