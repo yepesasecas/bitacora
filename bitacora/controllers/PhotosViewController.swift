@@ -79,6 +79,9 @@ class PhotosViewController: UIViewController, UICollectionViewDataSource {
         if photo.classified {
             cell.activityIndicator.stopAnimating()
         }
+        else {
+            cell.activityIndicator.startAnimating()
+        }
         
         return cell
     }
