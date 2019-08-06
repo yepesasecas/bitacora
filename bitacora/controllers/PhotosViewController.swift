@@ -37,6 +37,8 @@ class PhotosViewController: UIViewController, UICollectionViewDataSource {
         progressHUD = ProgressHUD.init(text: "loading")
         self.view.addSubview(progressHUD)
         self.progressHUD.hide()
+        
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -68,11 +70,11 @@ class PhotosViewController: UIViewController, UICollectionViewDataSource {
         )
         
         // authorize
-        let handle = oauthswift.authorize(
+        let _handle = oauthswift.authorize(
         withCallbackURL: URL(string: "bitacora://oauth-callback/twitter")!) { result in
             print("wwwooo")
             switch result {
-            case .success(let (credential, response, parameters)):
+            case .success(let (credential, _response, parameters)):
                 print(credential.oauthToken)
                 print(credential.oauthTokenSecret)
                 print(parameters)
@@ -104,6 +106,9 @@ class PhotosViewController: UIViewController, UICollectionViewDataSource {
 
         if photo.classified {
             cell.activityIndicator.stopAnimating()
+        }
+        else {
+            cell.activityIndicator.startAnimating()
         }
         
         return cell

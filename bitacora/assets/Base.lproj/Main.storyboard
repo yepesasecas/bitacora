@@ -101,55 +101,21 @@
             </objects>
             <point key="canvasLocation" x="1855.072463768116" y="18.75"/>
         </scene>
-        <!--Hashtags-->
-        <scene sceneID="qhc-kH-BQF">
-            <objects>
-                <tableViewController id="Gky-ia-ac6" customClass="HashtagsTableViewController" customModule="bitacora" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="fUc-tO-an4">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="HashtagTableViewCell" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="HashtagTableViewCell" textLabel="AJe-UV-5ao" style="IBUITableViewCellStyleDefault" id="403-xH-niz">
-                                <rect key="frame" x="0.0" y="28" width="414" height="44"/>
-                                <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="403-xH-niz" id="CZ8-kx-bYx">
-                                    <rect key="frame" x="0.0" y="0.0" width="376" height="43.5"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                    <subviews>
-                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="AJe-UV-5ao">
-                                            <rect key="frame" x="20" y="0.0" width="356" height="43.5"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                            <nil key="textColor"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
-                                    </subviews>
-                                </tableViewCellContentView>
-                            </tableViewCell>
-                        </prototypes>
-                        <connections>
-                            <outlet property="dataSource" destination="Gky-ia-ac6" id="2Jg-io-1Gc"/>
-                            <outlet property="delegate" destination="Gky-ia-ac6" id="w96-08-2ha"/>
-                        </connections>
-                    </tableView>
-                    <navigationItem key="navigationItem" title="Hashtags" largeTitleDisplayMode="always" id="K5B-Hf-vUO"/>
-                </tableViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Z00-88-tLy" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1917" y="775"/>
-        </scene>
         <!--Photo Hashtags Table View Controller-->
         <scene sceneID="hU6-DI-06E">
             <objects>
                 <tableViewController storyboardIdentifier="PhotoHashtagsTableViewController" id="r3g-u8-U7h" customClass="PhotoHashtagsTableViewController" customModule="bitacora" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="K8i-Eg-7Zd">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" allowsMultipleSelection="YES" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="K8i-Eg-7Zd">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <imageView key="tableHeaderView" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="jST-E0-FqD">
+                            <rect key="frame" x="0.0" y="0.0" width="414" height="250"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        </imageView>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="hashtagCell" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="hashtagCell" textLabel="R77-j1-lzk" style="IBUITableViewCellStyleDefault" id="kjL-ut-bDW">
-                                <rect key="frame" x="0.0" y="28" width="414" height="44"/>
+                                <rect key="frame" x="0.0" y="278" width="414" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="kjL-ut-bDW" id="F83-Ah-crx">
                                     <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
@@ -178,10 +144,13 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="imageView" destination="jST-E0-FqD" id="SCM-Ah-2fV"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="owM-XA-qda" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3725" y="19"/>
+            <point key="canvasLocation" x="3724.6376811594205" y="18.75"/>
         </scene>
         <!--Photos-->
         <scene sceneID="KgX-Xb-fcS">
@@ -219,25 +188,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="XMk-Cr-ARl" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2814" y="19"/>
-        </scene>
-        <!--Navigation Controller-->
-        <scene sceneID="p33-Zc-eXn">
-            <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="cT1-DG-pgf" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" systemItem="search" id="ida-Nd-m69"/>
-                    <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="bi2-TP-dyh">
-                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="Gky-ia-ac6" kind="relationship" relationship="rootViewController" id="Wa0-Rd-kL6"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="AsJ-Ly-Vye" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1006" y="775"/>
         </scene>
     </scenes>
     <resources>

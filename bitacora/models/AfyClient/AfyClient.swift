@@ -10,5 +10,7 @@ import UIKit
 
 struct AfyClient {
     let host: String = "https://afy.gigalixirapp.com"
-    let token: String = "Bearer eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJhdWQiOiJhZnkiLCJleHAiOjE1NjQ2MzE3MjEsImlhdCI6MTU2MjIxMjUyMSwiaXNzIjoiYWZ5IiwianRpIjoiM2UzOWJkYWEtODQxYy00ZDcxLWExZGQtNjk1NzQ1OTZjMmIzIiwibmJmIjoxNTYyMjEyNTIwLCJzdWIiOiIxIiwidHlwIjoiYWNjZXNzIn0.zbI1cDS2704QW4kgFiU5_Rn-XMp9acD5I6W7mGNNbDlr60qeY3tGlj9C25zaMCV8kY0yiEMLygitqALI34mDlg"
+    let token: String = "Bearer eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJhdWQiOiJhZnkiLCJleHAiOjE1Njc0NzYzMzYsImlhdCI6MTU2NTA1NzEzNiwiaXNzIjoiYWZ5IiwianRpIjoiODc0YWZhYTgtODQxNy00MTNiLWE4NWEtZGVmMDQ2NDllOTNkIiwibmJmIjoxNTY1MDU3MTM1LCJzdWIiOiIxIiwidHlwIjoiYWNjZXNzIn0.gBPApQuvUgpjdXgFodY0Iy_DBfgExgPan5vYo1iW1eVUkMeq_v-81TyGA-luXfA_YFl4E31q0_wKLYcefvzGog"
 }
+
+
