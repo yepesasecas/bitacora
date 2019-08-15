@@ -27,6 +27,7 @@
 		A025098A2297A781005602A7 /* PhotoHashtagsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A02509892297A781005602A7 /* PhotoHashtagsTableViewController.swift */; };
 		A03EEF5422E6BEC50094FC93 /* OAuthSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A09CFF6122E22259005B29F2 /* OAuthSwift.framework */; };
 		A03EEF5522E6BEC50094FC93 /* OAuthSwift.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = A09CFF6122E22259005B29F2 /* OAuthSwift.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		A05396A12304FD460080E4C8 /* ConfigViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A05396A02304FD460080E4C8 /* ConfigViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -148,6 +149,7 @@
 		A0250973229795D7005602A7 /* AfyClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AfyClient.swift; sourceTree = "<group>"; };
 		A025098722979662005602A7 /* ProgressHUD.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProgressHUD.swift; sourceTree = "<group>"; };
 		A02509892297A781005602A7 /* PhotoHashtagsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoHashtagsTableViewController.swift; sourceTree = "<group>"; };
+		A05396A02304FD460080E4C8 /* ConfigViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigViewController.swift; sourceTree = "<group>"; };
 		A09CFF5622E22258005B29F2 /* OAuthSwift.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = OAuthSwift.xcodeproj; path = ../OAuthSwift/OAuthSwift.xcodeproj; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -246,6 +248,7 @@
 				A022886C229CE377004478BE /* PhotosViewController+NSFetchedResultsControllerDelegate.swift */,
 				A0228870229CE59F004478BE /* PhotosViewController+UICollectionViewDelegate.swift */,
 				A02509892297A781005602A7 /* PhotoHashtagsTableViewController.swift */,
+				A05396A02304FD460080E4C8 /* ConfigViewController.swift */,
 			);
 			path = controllers;
 			sourceTree = "<group>";
@@ -498,6 +501,7 @@
 				A022886B229CDC92004478BE /* PhotoCollectionViewCell.swift in Sources */,
 				A022886D229CE377004478BE /* PhotosViewController+NSFetchedResultsControllerDelegate.swift in Sources */,
 				A025093A22979327005602A7 /* bitacora.xcdatamodeld in Sources */,
+				A05396A12304FD460080E4C8 /* ConfigViewController.swift in Sources */,
 				A025098A2297A781005602A7 /* PhotoHashtagsTableViewController.swift in Sources */,
 				A0228871229CE59F004478BE /* PhotosViewController+UICollectionViewDelegate.swift in Sources */,
 				A025093222979327005602A7 /* AppDelegate.swift in Sources */,

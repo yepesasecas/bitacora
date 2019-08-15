@@ -72,12 +72,6 @@
                                         </connections>
                                     </barButtonItem>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="Ukm-0P-CFb"/>
-                                    <barButtonItem title="Tumblr" id="vL5-iy-0Ca">
-                                        <connections>
-                                            <action selector="tumblr:" destination="BYZ-38-t0r" id="VqK-MN-YrY"/>
-                                        </connections>
-                                    </barButtonItem>
-                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="4pC-Kp-Ttb"/>
                                 </items>
                             </toolbar>
                         </subviews>
@@ -90,7 +84,13 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Photos" largeTitleDisplayMode="always" id="e2R-2s-qoH"/>
+                    <navigationItem key="navigationItem" title="Photos" largeTitleDisplayMode="always" id="e2R-2s-qoH">
+                        <barButtonItem key="rightBarButtonItem" title="Config" id="Hgk-CX-J6f">
+                            <connections>
+                                <segue destination="y2f-a7-vpF" kind="presentation" id="fTD-mC-BEj"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="collectionView" destination="oIP-jR-edq" id="I01-0o-6jn"/>
                         <outlet property="flowLayout" destination="zPD-Lu-VhI" id="5xJ-tL-eDM"/>
@@ -188,6 +188,128 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="XMk-Cr-ARl" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2814" y="19"/>
+        </scene>
+        <!--Config View Controller-->
+        <scene sceneID="IYF-xp-hMJ">
+            <objects>
+                <viewController id="DAQ-va-oOl" customClass="ConfigViewController" customModule="bitacora" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="45U-YL-0Kq">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="NnM-GQ-jsG">
+                                <rect key="frame" x="20" y="118" width="374" height="144"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qAP-yp-icd">
+                                        <rect key="frame" x="0.0" y="0.0" width="374" height="30"/>
+                                        <state key="normal" title="Tumblr Login"/>
+                                        <connections>
+                                            <action selector="tumblrLogin:" destination="DAQ-va-oOl" eventType="touchUpInside" id="UXr-bi-34T"/>
+                                        </connections>
+                                    </button>
+                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="PSo-Xd-A9d">
+                                        <rect key="frame" x="0.0" y="38" width="374" height="30"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="oauthToken" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qLH-NR-31O">
+                                                <rect key="frame" x="0.0" y="0.0" width="138" height="30"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="zdB-Re-q9F">
+                                                <rect key="frame" x="146" y="0.0" width="228" height="30"/>
+                                                <nil key="textColor"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits"/>
+                                                <connections>
+                                                    <action selector="tumblrLogin:" destination="DAQ-va-oOl" eventType="editingDidEnd" id="a91-0f-b9P"/>
+                                                </connections>
+                                            </textField>
+                                        </subviews>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="CoT-vU-rXR">
+                                        <rect key="frame" x="0.0" y="76" width="374" height="30"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="oauthTokenSecret" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6Sa-pt-9Fd">
+                                                <rect key="frame" x="0.0" y="0.0" width="138" height="30"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="VKD-A7-uhe">
+                                                <rect key="frame" x="146" y="0.0" width="228" height="30"/>
+                                                <nil key="textColor"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits"/>
+                                            </textField>
+                                        </subviews>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="09T-Hn-BpD">
+                                        <rect key="frame" x="0.0" y="114" width="374" height="30"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Blog Url" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Oqc-bW-pCs">
+                                                <rect key="frame" x="0.0" y="0.0" width="138" height="30"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="jqX-TN-nx8">
+                                                <rect key="frame" x="146" y="0.0" width="228" height="30"/>
+                                                <nil key="textColor"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits" textContentType="url"/>
+                                            </textField>
+                                        </subviews>
+                                    </stackView>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="zdB-Re-q9F" firstAttribute="width" secondItem="jqX-TN-nx8" secondAttribute="width" id="7pV-GB-PVq"/>
+                                    <constraint firstItem="zdB-Re-q9F" firstAttribute="width" secondItem="VKD-A7-uhe" secondAttribute="width" id="rsD-8i-6R4"/>
+                                </constraints>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="NnM-GQ-jsG" firstAttribute="leading" secondItem="Ffk-Qc-Hv8" secondAttribute="leading" constant="20" id="9fU-EC-0V3"/>
+                            <constraint firstItem="NnM-GQ-jsG" firstAttribute="top" secondItem="Ffk-Qc-Hv8" secondAttribute="top" constant="30" id="VRX-2O-fCI"/>
+                            <constraint firstItem="Ffk-Qc-Hv8" firstAttribute="trailing" secondItem="NnM-GQ-jsG" secondAttribute="trailing" constant="20" id="htL-dP-l3e"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="Ffk-Qc-Hv8"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="tri-80-X91">
+                        <barButtonItem key="leftBarButtonItem" title="Save" id="Bwj-nt-gXQ">
+                            <connections>
+                                <action selector="save:" destination="DAQ-va-oOl" id="ime-2C-Fep"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="blogUrlTextField" destination="jqX-TN-nx8" id="HRJ-2K-ZBE"/>
+                        <outlet property="oauthTokenSecretTextField" destination="VKD-A7-uhe" id="JAh-dH-YQO"/>
+                        <outlet property="oauthTokenTextField" destination="zdB-Re-q9F" id="FVy-Xk-RGx"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="0QM-9x-Mb8" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3721.739130434783" y="759.375"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="g4c-L5-nMQ">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="y2f-a7-vpF" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="mA7-Up-4ks">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="DAQ-va-oOl" kind="relationship" relationship="rootViewController" id="zlD-SE-q7r"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="39V-tQ-Uaa" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2813" y="759"/>
         </scene>
     </scenes>
     <resources>

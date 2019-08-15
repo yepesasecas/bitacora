@@ -8,7 +8,6 @@
 
 import UIKit
 import CoreData
-import OAuthSwift
 
 class PhotosViewController: UIViewController, UICollectionViewDataSource {
     
@@ -22,7 +21,6 @@ class PhotosViewController: UIViewController, UICollectionViewDataSource {
     var progressHUD: ProgressHUD!
     var dataController: DataController!
     var fetchedResultsController:NSFetchedResultsController<Photo>!
-    var oauthswift:OAuth1Swift!
     
     
     //MARK: - Life Cycle
@@ -38,7 +36,8 @@ class PhotosViewController: UIViewController, UICollectionViewDataSource {
         self.view.addSubview(progressHUD)
         self.progressHUD.hide()
         
-        
+        let oauthToken = UserDefaults.standard.string(forKey: "oauthToken") ?? "oauthToken not found"
+        print(oauthToken)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -58,32 +57,7 @@ class PhotosViewController: UIViewController, UICollectionViewDataSource {
     @IBAction func takePictureAction(_ sender: Any) {
         presentImagePickerWith(sourceType: .camera)
     }
-    
-    @IBAction func tumblr(_ sender: Any) {
-        // create an instance and retain it
-        oauthswift = OAuth1Swift(
-            consumerKey:    "hxKOeVAQq6vxKWNva4u0PguQqqmSCZNZs5EMznGVKDm2L5xv9l",
-            consumerSecret: "lFg1X6q9ZGsHolUpCZC3ZDNvZoTmbBCVKzjKDhJdqJB0ell7Y5",
-            requestTokenUrl: "https://www.tumblr.com/oauth/request_token",
-            authorizeUrl:    "https://www.tumblr.com/oauth/authorize",
-            accessTokenUrl:  "https://www.tumblr.com/oauth/access_token"
-        )
-        
-        // authorize
-        let _handle = oauthswift.authorize(
-        withCallbackURL: URL(string: "bitacora://oauth-callback/twitter")!) { result in
-            print("wwwooo")
-            switch result {
-            case .success(let (credential, _response, parameters)):
-                print(credential.oauthToken)
-                print(credential.oauthTokenSecret)
-                print(parameters)
-            // Do your request
-            case .failure(let error):
-                print(error.description)
-            }
-        }
-    }
+
     // MARK: UICollectionViewDataSource
     
     func numberOfSections(in collectionView: UICollectionView) -> Int {

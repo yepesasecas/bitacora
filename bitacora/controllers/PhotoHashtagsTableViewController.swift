@@ -20,6 +20,9 @@ class PhotoHashtagsTableViewController: UITableViewController {
     var photo: Photo!
     var oauthswift:OAuth1Swift!
     var progressHUD: ProgressHUD!
+    let oauthTokenString = "oauthToken"
+    let oauthTokenSecretString = "oauthTokenSecret"
+    let blogUrlString = "blogUrl"
     
     // MARK: - Life Cycle
     
@@ -30,11 +33,40 @@ class PhotoHashtagsTableViewController: UITableViewController {
         progressHUD = ProgressHUD.init(text: "loading")
         self.view.addSubview(progressHUD)
         self.progressHUD.hide()
+        
+        guard let oauthToken = UserDefaults.standard.string(forKey: oauthTokenString),
+            let oauthTokenSecret = UserDefaults.standard.string(forKey: oauthTokenSecretString) else {
+                let alert = UIAlertController(title: "No Tumblr Login Found", message: "go to config section and login to your tumblr account", preferredStyle: .alert)
+                alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+                self.present(alert, animated: true)
+                return
+        }
+        
+        oauthswift = OAuth1Swift(
+            consumerKey:    "hxKOeVAQq6vxKWNva4u0PguQqqmSCZNZs5EMznGVKDm2L5xv9l",
+            consumerSecret: "lFg1X6q9ZGsHolUpCZC3ZDNvZoTmbBCVKzjKDhJdqJB0ell7Y5",
+            requestTokenUrl: "https://www.tumblr.com/oauth/request_token",
+            authorizeUrl:    "https://www.tumblr.com/oauth/authorize",
+            accessTokenUrl:  "https://www.tumblr.com/oauth/access_token"
+        )
+        
+        oauthswift.client.credential.oauthToken = oauthToken
+        oauthswift.client.credential.oauthTokenSecret = oauthTokenSecret
     }
 
     // MARK: - Actions
     @IBAction func upload(_ sender: Any) {
         // Convert Selected Cell to string text
+        guard let blogURL = UserDefaults.standard.string(forKey: blogUrlString),
+              blogURL == "",
+              blogURL == " " else {
+            let alert = UIAlertController(title: "No Tumblr Blog URL defined", message: "go to config section and define your Blog URL", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+            self.present(alert, animated: true)
+            
+            return
+        }
+        
         var tags = ""
         if tableView.indexPathsForSelectedRows != nil {
             let hashtags = tableView.indexPathsForSelectedRows?.compactMap() { self.photo.hashtags?.object(at: $0.row) }
@@ -59,8 +91,7 @@ class PhotoHashtagsTableViewController: UITableViewController {
             "tags": tags
         ]
         let paramsData = try? JSONSerialization.data(withJSONObject:params)
-        let tumblr_url = "https://api.tumblr.com/v2/blog/shykidvoiddonut.tumblr.com/posts"
-        // let hook_url = "https://hookb.in/jea6RGkZy9T1012zVW97"
+        let tumblr_url = "https://api.tumblr.com/v2/blog/\(blogURL)/posts"
         
         let dataPart = OAuthSwiftMultipartData(name: "fileId", data: self.photo.imageData!, fileName: "img.jpeg", mimeType: "image/jpeg")
         let jsonPart = OAuthSwiftMultipartData(name: "json", data: paramsData!, fileName: nil, mimeType: "application/json")

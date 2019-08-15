@@ -14,7 +14,6 @@ extension PhotosViewController: UICollectionViewDelegate {
         let photo = self.fetchedResultsController.object(at: indexPath)
         let photoHashtags = self.storyboard?.instantiateViewController(withIdentifier: "PhotoHashtagsTableViewController") as! PhotoHashtagsTableViewController
         photoHashtags.photo = photo
-        photoHashtags.oauthswift = oauthswift
         self.navigationController?.pushViewController(photoHashtags, animated: true)
     }
 }
